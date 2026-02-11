@@ -1,0 +1,39 @@
+[
+  null,
+  {
+    "id": 1,
+    "list": [
+      {"code": 0, "indent": 0, "parameters": []}
+    ],
+    "name": "Terrain Check System",
+    "switchId": 0,
+    "trigger": 2
+  },
+  {
+    "id": 2,
+    "list": [
+      {"code": 0, "indent": 0, "parameters": []}
+    ],
+    "name": "Poison Swamp Effect",
+    "switchId": 0,
+    "trigger": 0
+  },
+  {
+    "id": 3,
+    "list": [
+      {"code": 0, "indent": 0, "parameters": []}
+    ],
+    "name": "Quicksand Effect",
+    "switchId": 0,
+    "trigger": 0
+  },
+  {
+    "id": 4,
+    "list": [
+      {"code": 0, "indent": 0, "parameters": []}
+    ],
+    "name": "Safe Zone Clear",
+    "switchId": 0,
+    "trigger": 0
+  }
+]

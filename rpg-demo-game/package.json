@@ -1,0 +1,12 @@
+{
+    "name": "thai-rpg-demo",
+    "main": "index.html",
+    "js-flags": "--expose-gc",
+    "window": {
+        "title": "พจนภัยในดินแดนอันตราย - Peril in the Dangerous Lands",
+        "toolbar": false,
+        "width": 816,
+        "height": 624,
+        "icon": "icon/icon.png"
+    }
+}

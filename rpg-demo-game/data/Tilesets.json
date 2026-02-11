@@ -1,0 +1,35 @@
+[
+  null,
+  {
+    "id": 1,
+    "flags": [],
+    "mode": 1,
+    "name": "World",
+    "note": "",
+    "tilesetNames": ["", "", "Outside_A2", "Outside_A3", "Outside_A4", "Outside_A5", "Outside_B", "Outside_C", "", ""]
+  },
+  {
+    "id": 2,
+    "flags": [],
+    "mode": 1,
+    "name": "Outside",
+    "note": "",
+    "tilesetNames": ["", "", "Outside_A2", "Outside_A3", "Outside_A4", "Outside_A5", "Outside_B", "Outside_C", "", ""]
+  },
+  {
+    "id": 3,
+    "flags": [],
+    "mode": 1,
+    "name": "Village",
+    "note": "",
+    "tilesetNames": ["", "", "Outside_A2", "Outside_A3", "Outside_A4", "Outside_A5", "Outside_B", "Outside_C", "", ""]
+  },
+  {
+    "id": 4,
+    "flags": [],
+    "mode": 1,
+    "name": "Forest",
+    "note": "",
+    "tilesetNames": ["", "", "Outside_A2", "Outside_A3", "Outside_A4", "Outside_A5", "Outside_B", "Outside_C", "", ""]
+  }
+]

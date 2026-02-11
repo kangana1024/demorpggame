@@ -1,0 +1,13 @@
+/* Game Font Configuration for Thai RPG Demo */
+/* Download Sarabun font from: https://fonts.google.com/specimen/Sarabun */
+
+@font-face {
+    font-family: GameFont;
+    src: url("Sarabun-Regular.ttf");
+}
+
+/* Fallback for Thai characters if Sarabun is not available */
+@font-face {
+    font-family: GameFont;
+    src: local("Sarabun"), local("Noto Sans Thai"), local("Tahoma");
+}
