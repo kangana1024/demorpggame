@@ -142,16 +142,31 @@ https://www.visustellamz.com/terms-of-service
 
 ---
 
-## Verification Script
+## Verification Scripts
 
-After downloading the plugins, run the verification script to check installation:
+After downloading the plugins, run the verification scripts to check installation:
 
+### Plugin Verification
 ```bash
 cd rpg-demo-game
 bash scripts/verify-plugins.sh
 ```
 
-This will confirm whether both plugins are properly installed and provide next steps.
+This verifies:
+- Plugin files are installed in `js/plugins/`
+- Load order is configured correctly in `plugins.js`
+
+### Full Project Verification
+```bash
+cd rpg-demo-game
+bash scripts/verify-project.sh
+```
+
+This performs a comprehensive check of:
+- Project structure (all required folders)
+- Data files (maps, actors, system, etc.)
+- Font configuration
+- Plugin load order
 
 ---
 
