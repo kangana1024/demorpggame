@@ -29,7 +29,7 @@
     "flags": [16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16],
     "mode": 1,
     "name": "Forest",
-    "note": "",
-    "tilesetNames": ["", "", "Outside_A2", "Outside_A3", "Outside_A4", "Outside_A5", "Outside_B", "Outside_C", "", ""]
+    "note": "Great Forest Mountains tileset with swamp support.\nTile IDs for regions:\n- A1 water tiles (2048-2095): Poison Swamp (Region 2) - murky green-purple water\n- A2 sand tiles (varies): Quicksand (Region 3)\n- A2 grass (2862): Safe paths (Region 7)\n- A2 trees (2816): Impassable forest",
+    "tilesetNames": ["", "Outside_A1", "Outside_A2", "Outside_A3", "Outside_A4", "Outside_A5", "Outside_B", "Outside_C", "", ""]
   }
 ]
