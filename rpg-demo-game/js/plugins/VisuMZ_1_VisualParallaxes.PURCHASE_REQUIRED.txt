@@ -1,0 +1,68 @@
+================================================================================
+VISUAL PARALLAXES PLUGIN - PURCHASE REQUIRED
+================================================================================
+
+The file "VisuMZ_1_VisualParallaxes.js" is a PAID commercial plugin from VisuStella
+and cannot be included in this repository or downloaded automatically.
+
+================================================================================
+PURCHASE INFORMATION
+================================================================================
+
+Plugin:     VisuMZ_1_VisualParallaxes.js
+Cost:       $8.00 USD (minimum)
+URL:        https://visustellamz.itch.io/visual-parallaxes
+License:    Commercial license included with purchase
+
+================================================================================
+INSTALLATION STEPS
+================================================================================
+
+1. PURCHASE the plugin from:
+   https://visustellamz.itch.io/visual-parallaxes
+
+2. DOWNLOAD the ZIP file after purchase
+
+3. EXTRACT the ZIP file
+
+4. COPY "VisuMZ_1_VisualParallaxes.js" to this folder:
+   rpg-demo-game/js/plugins/
+
+5. DELETE this placeholder file after installation
+
+6. VERIFY installation by running:
+   cd rpg-demo-game && bash scripts/verify-plugins.sh
+
+================================================================================
+ALSO REQUIRED: VisuMZ_0_CoreEngine.js (FREE)
+================================================================================
+
+You also need the CoreEngine plugin (FREE):
+URL: https://visustella.itch.io/visumz-sample
+
+Download the free VisuStella Sample Project and copy:
+  VisuMZ_0_CoreEngine.js → rpg-demo-game/js/plugins/
+
+================================================================================
+AFTER INSTALLING BOTH PLUGINS
+================================================================================
+
+1. Edit rpg-demo-game/js/plugins.js
+2. Uncomment the plugin entries (remove /* and */)
+3. Open project in RPG Maker MZ
+4. Verify in Tools → Plugin Manager
+5. Press F5 to playtest
+
+See VISUSTELLA_SETUP.md for detailed instructions.
+
+================================================================================
+WHY CAN'T THIS BE AUTOMATED?
+================================================================================
+
+VisuStella plugins are commercial products protected by copyright. They cannot
+be distributed, downloaded via automation, or included in open-source projects
+without a license. Each user must purchase their own license to use the plugin.
+
+VisuStella Terms of Service: https://www.visustellamz.com/terms-of-service
+
+================================================================================
