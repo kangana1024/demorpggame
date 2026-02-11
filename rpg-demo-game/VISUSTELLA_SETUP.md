@@ -142,6 +142,19 @@ https://www.visustellamz.com/terms-of-service
 
 ---
 
+## Verification Script
+
+After downloading the plugins, run the verification script to check installation:
+
+```bash
+cd rpg-demo-game
+bash scripts/verify-plugins.sh
+```
+
+This will confirm whether both plugins are properly installed and provide next steps.
+
+---
+
 ## Quick Reference
 
 | Item | URL |
