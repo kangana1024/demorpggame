@@ -28,7 +28,7 @@
     {
       "id": 1,
       "name": "ผู้อาวุโส",
-      "note": "Village Elder NPC - Provides tutorial information",
+      "note": "Village Elder NPC - Provides tutorial information about controls and hazards",
       "pages": [
         {
           "conditions": {"actorId": 1, "actorValid": false, "itemId": 1, "itemValid": false, "selfSwitchCh": "A", "selfSwitchValid": false, "switch1Id": 1, "switch1Valid": false, "switch2Id": 1, "switch2Valid": false, "variableId": 1, "variableValid": false, "variableValue": 0},
@@ -37,6 +37,10 @@
           "list": [
             {"code": 101, "indent": 0, "parameters": ["People1", 0, 0, 2, "ผู้อาวุโส"]},
             {"code": 401, "indent": 0, "parameters": ["ยินดีต้อนรับสู่หมู่บ้านชายแดน นักเดินทาง!"]},
+            {"code": 401, "indent": 0, "parameters": ["ก่อนออกเดินทาง ให้ข้าสอนเจ้าสักหน่อย..."]},
+            {"code": 401, "indent": 0, "parameters": ["ใช้ปุ่มลูกศรหรือ WASD ในการเดิน"]},
+            {"code": 401, "indent": 0, "parameters": ["กด Enter หรือ Space เพื่อพูดคุยกับชาวบ้าน"]},
+            {"code": 401, "indent": 0, "parameters": ["กด Escape หรือ X เพื่อเปิดเมนู"]},
             {"code": 401, "indent": 0, "parameters": ["ระวังตัวให้ดีเมื่อเข้าป่าเขาใหญ่"]},
             {"code": 401, "indent": 0, "parameters": ["มีหนองพิษและทรายดูดอยู่ที่นั่น..."]},
             {"code": 401, "indent": 0, "parameters": ["ให้เดินไปทางทิศตะวันออกเพื่อออกจากหมู่บ้าน"]},
@@ -59,7 +63,7 @@
     {
       "id": 2,
       "name": "พ่อค้า",
-      "note": "Merchant NPC - Provides item hints",
+      "note": "Merchant NPC - Provides item hints and menu tutorial",
       "pages": [
         {
           "conditions": {"actorId": 1, "actorValid": false, "itemId": 1, "itemValid": false, "selfSwitchCh": "A", "selfSwitchValid": false, "switch1Id": 1, "switch1Valid": false, "switch2Id": 1, "switch2Valid": false, "variableId": 1, "variableValid": false, "variableValue": 0},
@@ -70,6 +74,8 @@
             {"code": 401, "indent": 0, "parameters": ["สวัสดีครับ! ยินดีต้อนรับสู่ร้านค้าของผม"]},
             {"code": 401, "indent": 0, "parameters": ["ถ้าจะเข้าป่า ควรเตรียมยาถอนพิษไว้นะครับ"]},
             {"code": 401, "indent": 0, "parameters": ["หนองพิษในป่าเขาใหญ่นั้นอันตรายมาก!"]},
+            {"code": 401, "indent": 0, "parameters": ["กด Escape เพื่อเปิดเมนูดูไอเทมของคุณได้ครับ"]},
+            {"code": 401, "indent": 0, "parameters": ["อย่าลืมบันทึกเกมบ่อยๆ นะครับ!"]},
             {"code": 0, "indent": 0, "parameters": []}
           ],
           "moveFrequency": 3,
@@ -89,7 +95,7 @@
     {
       "id": 3,
       "name": "เด็กน้อย",
-      "note": "Child NPC - Provides quicksand hints",
+      "note": "Child NPC - Provides quicksand hints and movement tips",
       "pages": [
         {
           "conditions": {"actorId": 1, "actorValid": false, "itemId": 1, "itemValid": false, "selfSwitchCh": "A", "selfSwitchValid": false, "switch1Id": 1, "switch1Valid": false, "switch2Id": 1, "switch2Valid": false, "variableId": 1, "variableValid": false, "variableValue": 0},
@@ -97,7 +103,10 @@
           "image": {"tileId": 0, "characterName": "People1", "direction": 2, "pattern": 0, "characterIndex": 4},
           "list": [
             {"code": 101, "indent": 0, "parameters": ["People1", 4, 0, 2, "เด็กน้อย"]},
-            {"code": 401, "indent": 0, "parameters": ["พี่ๆ รู้ไหม? ในป่ามีทรายดูดด้วยนะ!"]},
+            {"code": 401, "indent": 0, "parameters": ["พี่ๆ! พี่ๆ! มาเล่นกับหนูไหม?"]},
+            {"code": 401, "indent": 0, "parameters": ["หนูชอบวิ่งเล่นทั่วหมู่บ้าน!"]},
+            {"code": 401, "indent": 0, "parameters": ["กด Shift ค้างไว้แล้วเดินจะวิ่งได้นะ!"]},
+            {"code": 401, "indent": 0, "parameters": ["แต่ว่า... ในป่ามีทรายดูดด้วยนะ!"]},
             {"code": 401, "indent": 0, "parameters": ["ถ้าเหยียบโดนจะเดินช้าลงมากเลย"]},
             {"code": 401, "indent": 0, "parameters": ["แม่บอกว่าอย่าหยุดนิ่งในทรายดูดนะ!"]},
             {"code": 0, "indent": 0, "parameters": []}
