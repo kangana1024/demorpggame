@@ -128,18 +128,41 @@
     "id": 4,
     "list": [
       {"code": 355, "indent": 0, "parameters": ["// Region 7: Safe Zone - clear hazard effects"]},
+      {"code": 355, "indent": 0, "parameters": ["// NOTE: Poison STATUS (State 2) is intentionally NOT removed"]},
+      {"code": 355, "indent": 0, "parameters": ["// Terrain damage stops but poison effect persists until cured/expires"]},
       {"code": 111, "indent": 0, "parameters": [12, "$gamePlayer.regionId() === 7 || $gamePlayer.regionId() === 0"]},
-      {"code": 355, "indent": 1, "parameters": ["// Clear terrain damage flag"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Check if we just entered safe zone (not already in it)"]},
+      {"code": 355, "indent": 1, "parameters": ["var justEnteredSafe = !$gameTemp._inSafeZone;"]},
+      {"code": 355, "indent": 1, "parameters": ["var wasInHazard = $gameTemp._inPoisonSwamp || $gameTemp._inQuicksand;"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Mark that we are now in safe zone"]},
+      {"code": 355, "indent": 1, "parameters": ["$gameTemp._inSafeZone = true;"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Clear terrain damage flag - stops terrain HP drain"]},
       {"code": 355, "indent": 1, "parameters": ["$gameTemp._terrainDamageMsg = false;"]},
-      {"code": 355, "indent": 1, "parameters": ["// Clear poison swamp state flag"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Clear poison swamp state flag - stops terrain poison damage"]},
       {"code": 355, "indent": 1, "parameters": ["$gameTemp._inPoisonSwamp = false;"]},
+
       {"code": 355, "indent": 1, "parameters": ["// Clear quicksand state flags"]},
       {"code": 355, "indent": 1, "parameters": ["$gameTemp._inQuicksand = false;"]},
       {"code": 355, "indent": 1, "parameters": ["$gameTemp._quicksandSoundTimer = 0;"]},
+
       {"code": 355, "indent": 1, "parameters": ["// Restore normal movement speed (speed 4 = default)"]},
       {"code": 355, "indent": 1, "parameters": ["if ($gamePlayer.moveSpeed() < 4) { $gamePlayer.setMoveSpeed(4); }"]},
-      {"code": 355, "indent": 1, "parameters": ["// Visual feedback: Gradually restore normal screen tint in safe zone"]},
-      {"code": 223, "indent": 1, "parameters": [[0, 0, 0, 0], 60, false]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Visual feedback: Only restore tint when transitioning from hazard"]},
+      {"code": 355, "indent": 1, "parameters": ["if (justEnteredSafe && wasInHazard) {"]},
+      {"code": 223, "indent": 1, "parameters": [[0, 0, 0, 0], 45, false]},
+      {"code": 355, "indent": 1, "parameters": ["}"]},
+
+      {"code": 0, "indent": 1, "parameters": []},
+      {"code": 411, "indent": 0, "parameters": []},
+
+      {"code": 355, "indent": 1, "parameters": ["// Player left safe zone - clear the flag"]},
+      {"code": 355, "indent": 1, "parameters": ["$gameTemp._inSafeZone = false;"]},
+
       {"code": 0, "indent": 1, "parameters": []},
       {"code": 412, "indent": 0, "parameters": []},
       {"code": 0, "indent": 0, "parameters": []}
