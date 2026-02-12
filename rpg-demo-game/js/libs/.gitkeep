@@ -1,0 +1,8 @@
+# JavaScript Libraries Directory
+
+Copy the following from VisuStella Sample Project (js/libs/):
+- pixi.js
+- pako.min.js
+- localforage.min.js
+- effekseer.min.js
+- vorbisdecoder.js

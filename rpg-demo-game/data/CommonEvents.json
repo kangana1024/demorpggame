@@ -1,0 +1,178 @@
+[
+  null,
+  {
+    "id": 1,
+    "list": [
+      {"code": 355, "indent": 0, "parameters": ["// Master Terrain Check - runs in parallel"]},
+      {"code": 355, "indent": 0, "parameters": ["// This event coordinates terrain hazard detection"]},
+      {"code": 355, "indent": 0, "parameters": ["// Track previous region for transition effects"]},
+      {"code": 355, "indent": 0, "parameters": ["if (typeof $gameTemp._prevRegion === 'undefined') $gameTemp._prevRegion = 0;"]},
+      {"code": 355, "indent": 0, "parameters": ["var currentRegion = $gamePlayer.regionId();"]},
+      {"code": 355, "indent": 0, "parameters": ["var regionChanged = ($gameTemp._prevRegion !== currentRegion);"]},
+      {"code": 117, "indent": 0, "parameters": [2]},
+      {"code": 117, "indent": 0, "parameters": [3]},
+      {"code": 117, "indent": 0, "parameters": [4]},
+      {"code": 355, "indent": 0, "parameters": ["$gameTemp._prevRegion = currentRegion;"]},
+      {"code": 230, "indent": 0, "parameters": [30]},
+      {"code": 0, "indent": 0, "parameters": []}
+    ],
+    "name": "Terrain Check System",
+    "switchId": 0,
+    "trigger": 2
+  },
+  {
+    "id": 2,
+    "list": [
+      {"code": 355, "indent": 0, "parameters": ["// Region 2: Poison Swamp Effect"]},
+      {"code": 111, "indent": 0, "parameters": [12, "$gamePlayer.regionId() === 2"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Visual feedback: Apply green poison tint only on entry or if not already tinted"]},
+      {"code": 355, "indent": 1, "parameters": ["if (!$gameTemp._inPoisonSwamp) {"]},
+      {"code": 355, "indent": 1, "parameters": ["  $gameTemp._inPoisonSwamp = true;"]},
+      {"code": 223, "indent": 1, "parameters": [[200, 255, 200, 50], 20, false]},
+      {"code": 355, "indent": 1, "parameters": ["  // Play poison bubble sound effect on entry"]},
+      {"code": 355, "indent": 1, "parameters": ["  AudioManager.playSe({name: 'poison_bubble', volume: 65, pitch: 90, pan: 0});"]},
+      {"code": 355, "indent": 1, "parameters": ["}"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Apply terrain HP damage (3% of max HP)"]},
+      {"code": 355, "indent": 1, "parameters": ["var leader = $gameParty.leader();"]},
+      {"code": 355, "indent": 1, "parameters": ["var damage = Math.max(1, Math.floor(leader.mhp * 0.03));"]},
+      {"code": 355, "indent": 1, "parameters": ["leader.gainHp(-damage);"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Visual feedback: Flash screen on HP damage (purple poison flash)"]},
+      {"code": 224, "indent": 1, "parameters": [[153, 50, 204, 160], 8, true]},
+
+      {"code": 250, "indent": 1, "parameters": [{"name": "Damage4", "volume": 50, "pitch": 100, "pan": 0}]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Apply Poison state (ID: 2) if not already poisoned"]},
+      {"code": 355, "indent": 1, "parameters": ["var leader = $gameParty.leader();"]},
+      {"code": 355, "indent": 1, "parameters": ["if (!leader.isStateAffected(2)) { leader.addState(2); }"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Show terrain damage in battle log style"]},
+      {"code": 355, "indent": 1, "parameters": ["if (typeof $gameTemp._terrainDamageMsg === 'undefined' || !$gameTemp._terrainDamageMsg) {"]},
+      {"code": 355, "indent": 1, "parameters": ["  $gameTemp._terrainDamageMsg = true;"]},
+      {"code": 355, "indent": 1, "parameters": ["}"]},
+
+      {"code": 0, "indent": 1, "parameters": []},
+      {"code": 411, "indent": 0, "parameters": []},
+
+      {"code": 355, "indent": 1, "parameters": ["// Visual feedback: Fade out tint when leaving poison swamp"]},
+      {"code": 355, "indent": 1, "parameters": ["if ($gameTemp._inPoisonSwamp) {"]},
+      {"code": 355, "indent": 1, "parameters": ["  $gameTemp._inPoisonSwamp = false;"]},
+      {"code": 355, "indent": 1, "parameters": ["  // Only clear tint if not entering another hazard zone"]},
+      {"code": 355, "indent": 1, "parameters": ["  var newRegion = $gamePlayer.regionId();"]},
+      {"code": 355, "indent": 1, "parameters": ["  if (newRegion !== 3) {"]},
+      {"code": 223, "indent": 1, "parameters": [[0, 0, 0, 0], 45, false]},
+      {"code": 355, "indent": 1, "parameters": ["  }"]},
+      {"code": 355, "indent": 1, "parameters": ["}"]},
+
+      {"code": 0, "indent": 1, "parameters": []},
+      {"code": 412, "indent": 0, "parameters": []},
+      {"code": 0, "indent": 0, "parameters": []}
+    ],
+    "name": "Poison Swamp Effect",
+    "switchId": 0,
+    "trigger": 0
+  },
+  {
+    "id": 3,
+    "list": [
+      {"code": 355, "indent": 0, "parameters": ["// Region 3: Quicksand Effect"]},
+      {"code": 355, "indent": 0, "parameters": ["// Applies 50% movement speed reduction when in quicksand"]},
+      {"code": 111, "indent": 0, "parameters": [12, "$gamePlayer.regionId() === 3"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Reduce movement speed to 50% (speed 2 = half of normal speed 4)"]},
+      {"code": 355, "indent": 1, "parameters": ["if ($gamePlayer.moveSpeed() > 2) { $gamePlayer.setMoveSpeed(2); }"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Visual feedback: Apply yellow-brown screen tint only on entry"]},
+      {"code": 355, "indent": 1, "parameters": ["if (!$gameTemp._inQuicksand) {"]},
+      {"code": 355, "indent": 1, "parameters": ["  $gameTemp._inQuicksand = true;"]},
+      {"code": 223, "indent": 1, "parameters": [[222, 184, 135, 60], 20, false]},
+      {"code": 355, "indent": 1, "parameters": ["  // Visual feedback: Screen shake when first entering quicksand"]},
+      {"code": 225, "indent": 1, "parameters": [2, 3, 20]},
+      {"code": 355, "indent": 1, "parameters": ["  // Play quicksand squelch sound effect on entry"]},
+      {"code": 355, "indent": 1, "parameters": ["  AudioManager.playSe({name: 'quicksand_squelch', volume: 70, pitch: 85, pan: 0});"]},
+      {"code": 355, "indent": 1, "parameters": ["}"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Play sinking/sand sound effect (subtle)"]},
+      {"code": 355, "indent": 1, "parameters": ["// Only play sound occasionally to avoid repetition"]},
+      {"code": 355, "indent": 1, "parameters": ["if (!$gameTemp._quicksandSoundTimer || $gameTemp._quicksandSoundTimer <= 0) {"]},
+      {"code": 355, "indent": 1, "parameters": ["  $gameTemp._quicksandSoundTimer = 90; // 1.5 second cooldown"]},
+      {"code": 250, "indent": 1, "parameters": [{"name": "Sand", "volume": 40, "pitch": 80, "pan": 0}]},
+      {"code": 355, "indent": 1, "parameters": ["}"]},
+      {"code": 355, "indent": 1, "parameters": ["$gameTemp._quicksandSoundTimer--;"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Visual feedback: Random dust flash while in quicksand"]},
+      {"code": 355, "indent": 1, "parameters": ["if (Math.random() < 0.08) { // 8% chance per frame for subtle dust effect"]},
+      {"code": 224, "indent": 1, "parameters": [[210, 180, 140, 45], 12, true]},
+      {"code": 355, "indent": 1, "parameters": ["}"]},
+
+      {"code": 0, "indent": 1, "parameters": []},
+      {"code": 411, "indent": 0, "parameters": []},
+
+      {"code": 355, "indent": 1, "parameters": ["// Visual feedback: Fade out tint when leaving quicksand"]},
+      {"code": 355, "indent": 1, "parameters": ["if ($gameTemp._inQuicksand) {"]},
+      {"code": 355, "indent": 1, "parameters": ["  $gameTemp._inQuicksand = false;"]},
+      {"code": 355, "indent": 1, "parameters": ["  // Only clear tint if not entering another hazard zone"]},
+      {"code": 355, "indent": 1, "parameters": ["  var newRegion = $gamePlayer.regionId();"]},
+      {"code": 355, "indent": 1, "parameters": ["  if (newRegion !== 2) {"]},
+      {"code": 223, "indent": 1, "parameters": [[0, 0, 0, 0], 45, false]},
+      {"code": 355, "indent": 1, "parameters": ["  }"]},
+      {"code": 355, "indent": 1, "parameters": ["}"]},
+
+      {"code": 0, "indent": 1, "parameters": []},
+      {"code": 412, "indent": 0, "parameters": []},
+      {"code": 0, "indent": 0, "parameters": []}
+    ],
+    "name": "Quicksand Effect",
+    "switchId": 0,
+    "trigger": 0
+  },
+  {
+    "id": 4,
+    "list": [
+      {"code": 355, "indent": 0, "parameters": ["// Region 7: Safe Zone - clear hazard effects"]},
+      {"code": 355, "indent": 0, "parameters": ["// NOTE: Poison STATUS (State 2) is intentionally NOT removed"]},
+      {"code": 355, "indent": 0, "parameters": ["// Terrain damage stops but poison effect persists until cured/expires"]},
+      {"code": 111, "indent": 0, "parameters": [12, "$gamePlayer.regionId() === 7 || $gamePlayer.regionId() === 0"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Check if we just entered safe zone (not already in it)"]},
+      {"code": 355, "indent": 1, "parameters": ["var justEnteredSafe = !$gameTemp._inSafeZone;"]},
+      {"code": 355, "indent": 1, "parameters": ["var wasInHazard = $gameTemp._inPoisonSwamp || $gameTemp._inQuicksand;"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Mark that we are now in safe zone"]},
+      {"code": 355, "indent": 1, "parameters": ["$gameTemp._inSafeZone = true;"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Clear terrain damage flag - stops terrain HP drain"]},
+      {"code": 355, "indent": 1, "parameters": ["$gameTemp._terrainDamageMsg = false;"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Clear poison swamp state flag - stops terrain poison damage"]},
+      {"code": 355, "indent": 1, "parameters": ["$gameTemp._inPoisonSwamp = false;"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Clear quicksand state flags"]},
+      {"code": 355, "indent": 1, "parameters": ["$gameTemp._inQuicksand = false;"]},
+      {"code": 355, "indent": 1, "parameters": ["$gameTemp._quicksandSoundTimer = 0;"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Restore normal movement speed (speed 4 = default)"]},
+      {"code": 355, "indent": 1, "parameters": ["if ($gamePlayer.moveSpeed() < 4) { $gamePlayer.setMoveSpeed(4); }"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Visual feedback: Only restore tint when transitioning from hazard"]},
+      {"code": 355, "indent": 1, "parameters": ["if (justEnteredSafe && wasInHazard) {"]},
+      {"code": 223, "indent": 1, "parameters": [[0, 0, 0, 0], 45, false]},
+      {"code": 355, "indent": 1, "parameters": ["}"]},
+
+      {"code": 0, "indent": 1, "parameters": []},
+      {"code": 411, "indent": 0, "parameters": []},
+
+      {"code": 355, "indent": 1, "parameters": ["// Player left safe zone - clear the flag"]},
+      {"code": 355, "indent": 1, "parameters": ["$gameTemp._inSafeZone = false;"]},
+
+      {"code": 0, "indent": 1, "parameters": []},
+      {"code": 412, "indent": 0, "parameters": []},
+      {"code": 0, "indent": 0, "parameters": []}
+    ],
+    "name": "Safe Zone Clear",
+    "switchId": 0,
+    "trigger": 0
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "name": "thai-rpg-scripts",
+  "version": "1.0.0",
+  "description": "Development scripts for พจนภัยในดินแดนอันตราย (Peril in the Dangerous Lands)",
+  "private": true,
+  "scripts": {
+    "generate-parallax": "node generate-parallax-images.js",
+    "verify-plugins": "bash verify-plugins.sh",
+    "verify-project": "bash verify-project.sh"
+  },
+  "dependencies": {
+    "canvas": "^2.11.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

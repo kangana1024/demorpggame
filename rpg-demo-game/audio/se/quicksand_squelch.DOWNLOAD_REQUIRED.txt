@@ -1,0 +1,74 @@
+# Sound Effect: quicksand_squelch.ogg
+
+## About This File
+This placeholder indicates that the sound effect file `quicksand_squelch.ogg` must be downloaded manually.
+
+## Usage
+This sound effect plays when entering the Quicksand (Region 3) hazard zone.
+
+## File Requirements
+| Property | Value |
+|----------|-------|
+| **Filename** | `quicksand_squelch.ogg` |
+| **Format** | OGG Vorbis (.ogg) |
+| **Bitrate** | 96-128 kbps |
+| **Duration** | 0.5-1.5 seconds |
+| **Style** | Wet squelching/sinking sand sound |
+
+## Installation
+1. Download or create a quicksand squelch sound effect
+2. Convert to OGG format if needed (see conversion commands below)
+3. Save as `audio/se/quicksand_squelch.ogg`
+4. Delete this placeholder file
+
+## Recommended Sound Sources
+
+### Free Sources
+- **Freesound.org**: https://freesound.org/search/?q=squelch
+  - Search: "squelch", "mud step", "sinking sand", "wet footstep"
+  - License: Various CC licenses (check each sound)
+
+- **OpenGameArt.org**: https://opengameart.org/art-search?keys=mud+sound
+  - Search: "mud", "sand", "swamp footstep"
+
+- **Sonniss GDC Audio Bundle**: https://sonniss.com/gameaudiogdc
+  - Free annual sound library releases
+  - High-quality game-ready audio
+
+### Creating Your Own
+You can generate similar sounds using:
+- Record actual wet sand/mud sounds
+- Layer multiple sounds in Audacity
+- Mix footstep sounds with "wet" filter effects
+
+## Audio Conversion
+
+If your source audio is not in OGG format:
+
+```bash
+# Install FFmpeg
+# macOS: brew install ffmpeg
+# Ubuntu: sudo apt install ffmpeg
+
+# Convert MP3 to OGG (SE quality)
+ffmpeg -i source.mp3 -c:a libvorbis -q:a 4 audio/se/quicksand_squelch.ogg
+
+# Convert WAV to OGG
+ffmpeg -i source.wav -c:a libvorbis -q:a 4 audio/se/quicksand_squelch.ogg
+```
+
+Quality setting `-q:a`:
+- `3` = ~96 kbps (good for short SE)
+- `4` = ~112 kbps (recommended)
+- `5` = ~128 kbps (higher quality)
+
+## Sound Effect Parameters (in-game)
+| Parameter | Value | Description |
+|-----------|-------|-------------|
+| Volume | 70 | Clear audible feedback |
+| Pitch | 85 | Low pitch for heavy feeling |
+| Pan | 0 | Center balanced |
+
+---
+
+*Project: Peril in the Dangerous Lands*
