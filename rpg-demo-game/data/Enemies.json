@@ -1,1 +1,27 @@
-[null]
+[
+  null,
+  {
+    "id": 1,
+    "actions": [
+      {
+        "conditionParam1": 0,
+        "conditionParam2": 0,
+        "conditionType": 0,
+        "rating": 5,
+        "skillId": 1
+      }
+    ],
+    "battlerHue": 0,
+    "battlerName": "Orc",
+    "dropItems": [
+      {"dataId": 1, "denominator": 4, "kind": 1}
+    ],
+    "exp": 30,
+    "gold": 20,
+    "meta": {},
+    "name": "ปีศาจหมู",
+    "note": "",
+    "params": [40, 0, 10, 5, 5, 5, 8, 5],
+    "traits": []
+  }
+]

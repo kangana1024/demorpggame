@@ -11,7 +11,7 @@
   "encounterStep": 30,
   "height": 40,
   "meta": {},
-  "note": "Great Forest Mountains - First Dangerous Zone\nContains Poison Swamp (Region 2) and Quicksand (Region 3)\nSafe paths are Region 7\n\nPoison Swamp Areas (Region 2):\n- Swamp 1: Rows 1-4, positions 10-13 (4x4 pool northeast of entrance)\n- Swamp 2: Rows 29-35, positions 22-24 (3-wide strip in southeast)\n- Uses A1 water tiles (ID 2048) for murky green-purple animated water\n\nQuicksand Areas (Region 3):\n- Quicksand 1: Rows 1-4, positions 31-34 (4x4 patch in far northeast)\n- Quicksand 2: Rows 28-32, positions 7-10 (4x5 patch in southwest)\n- Uses A2 sand tiles (ID 2912) for light tan sand (#DEB887)"\n\n<Visual Parallax>\n id:1\n filename:forest_01_sky\n horz:0\n vert:0\n blendMode:0\n opacity:255\n scrollLockX:false\n scrollLockY:false\n scrollX:0.2\n scrollY:0.2\n hue:0\n</Visual Parallax>\n\n<Visual Parallax>\n id:2\n filename:forest_02_distant_mountains\n horz:0\n vert:0\n blendMode:0\n opacity:255\n scrollLockX:false\n scrollLockY:false\n scrollX:0.4\n scrollY:0.4\n hue:0\n</Visual Parallax>\n\n<Visual Parallax>\n id:3\n filename:forest_03_midground_trees\n horz:0\n vert:0\n blendMode:0\n opacity:255\n scrollLockX:false\n scrollLockY:false\n scrollX:0.7\n scrollY:0.7\n hue:0\n</Visual Parallax>\n\n<Visual Parallax>\n id:5\n filename:forest_05_foreground_bushes\n horz:0\n vert:0\n blendMode:0\n opacity:220\n scrollLockX:false\n scrollLockY:false\n scrollX:1.1\n scrollY:1.1\n hue:0\n</Visual Parallax>\n\n<Visual Parallax>\n id:6\n filename:forest_06_fog\n horz:0\n vert:0\n blendMode:1\n opacity:100\n scrollLockX:false\n scrollLockY:false\n scrollX:1.2\n scrollY:0.1\n hue:0\n</Visual Parallax>",
+  "note": "Great Forest Mountains - First Dangerous Zone\nContains Poison Swamp (Region 2) and Quicksand (Region 3)\nSafe paths are Region 7\n\nPoison Swamp Areas (Region 2):\n- Swamp 1: Rows 1-4, positions 10-13 (4x4 pool northeast of entrance)\n- Swamp 2: Rows 29-35, positions 22-24 (3-wide strip in southeast)\n- Uses A1 water tiles (ID 2048) for murky green-purple animated water\n\nQuicksand Areas (Region 3):\n- Quicksand 1: Rows 1-4, positions 31-34 (4x4 patch in far northeast)\n- Quicksand 2: Rows 28-32, positions 7-10 (4x5 patch in southwest)\n- Uses A2 sand tiles (ID 2912) for light tan sand (#DEB887)\n\n<Visual Parallax>\n id:1\n filename:forest_01_sky\n horz:0\n vert:0\n blendMode:0\n opacity:255\n scrollLockX:false\n scrollLockY:false\n scrollX:0.2\n scrollY:0.2\n hue:0\n</Visual Parallax>\n\n<Visual Parallax>\n id:2\n filename:forest_02_distant_mountains\n horz:0\n vert:0\n blendMode:0\n opacity:255\n scrollLockX:false\n scrollLockY:false\n scrollX:0.4\n scrollY:0.4\n hue:0\n</Visual Parallax>\n\n<Visual Parallax>\n id:3\n filename:forest_03_midground_trees\n horz:0\n vert:0\n blendMode:0\n opacity:255\n scrollLockX:false\n scrollLockY:false\n scrollX:0.7\n scrollY:0.7\n hue:0\n</Visual Parallax>\n\n<Visual Parallax>\n id:5\n filename:forest_05_foreground_bushes\n horz:0\n vert:0\n blendMode:0\n opacity:220\n scrollLockX:false\n scrollLockY:false\n scrollX:1.1\n scrollY:1.1\n hue:0\n</Visual Parallax>\n\n<Visual Parallax>\n id:6\n filename:forest_06_fog\n horz:0\n vert:0\n blendMode:1\n opacity:100\n scrollLockX:false\n scrollLockY:false\n scrollX:1.2\n scrollY:0.1\n hue:0\n</Visual Parallax>",
   "parallaxLoopX": false,
   "parallaxLoopY": false,
   "parallaxName": "",
@@ -369,6 +369,33 @@
       ],
       "x": 15,
       "y": 14
+    },
+    {
+      "id": 5,
+      "name": "ปีศาจหมู",
+      "note": "Pig Demon Enemy - Chases player and triggers battle on contact",
+      "pages": [
+        {
+          "conditions": {"actorId": 1, "actorValid": false, "itemId": 1, "itemValid": false, "selfSwitchCh": "A", "selfSwitchValid": false, "switch1Id": 1, "switch1Valid": false, "switch2Id": 1, "switch2Valid": false, "variableId": 1, "variableValid": false, "variableValue": 0},
+          "directionFix": false,
+          "image": {"tileId": 0, "characterName": "Monster", "direction": 2, "pattern": 0, "characterIndex": 4},
+          "list": [
+            {"code": 301, "indent": 0, "parameters": [0, 1, false, true]},
+            {"code": 0, "indent": 0, "parameters": []}
+          ],
+          "moveFrequency": 4,
+          "moveRoute": {"list": [{"code": 0, "parameters": []}], "repeat": true, "skippable": true, "wait": false},
+          "moveSpeed": 3,
+          "moveType": 2,
+          "priorityType": 1,
+          "stepAnime": true,
+          "through": false,
+          "trigger": 2,
+          "walkAnime": true
+        }
+      ],
+      "x": 20,
+      "y": 15
     }
   ]
 }
