@@ -1,0 +1,47 @@
+# village_theme.ogg - Border Village Background Music
+
+This placeholder indicates that the village_theme.ogg audio file needs to be downloaded.
+
+## Requirements
+- Format: OGG Vorbis (.ogg)
+- Bitrate: 128-192 kbps
+- Style: Warm, peaceful, Thai-inspired
+- Duration: 2-4 minutes (loopable)
+
+## Recommended Sources
+
+### Free Options (Attribution Required)
+1. **Soundimage.org Fantasy/Wonder**
+   URL: https://soundimage.org/fantasywonder/
+   Look for: Peaceful village themes, Asian-inspired tracks
+   License: Free with attribution to Eric Matyas
+
+2. **OpenGameArt.org**
+   URL: https://opengameart.org/art-search?keys=village+music+rpg
+   License: Various CC licenses
+
+3. **itch.io Free RPG Music**
+   URL: https://itch.io/game-assets/free/genre-rpg/tag-music
+   License: Varies by creator
+
+### Paid Options
+1. **Shanghai Fantasy Story DLC** (Steam)
+   URL: https://store.steampowered.com/app/1378440
+   Price: $9.99 (often 60% off)
+   Includes Asian-themed RPG BGM
+
+## Installation
+1. Download or create a peaceful village-themed music track
+2. Convert to OGG format if needed (use Audacity or FFmpeg)
+3. Save as: audio/bgm/village_theme.ogg
+4. Delete this placeholder file
+
+## Conversion Command (FFmpeg)
+ffmpeg -i input_music.mp3 -c:a libvorbis -q:a 5 village_theme.ogg
+
+## Alternative: Use RPG Maker MZ Default
+If you don't have custom audio, the map will fallback to "Town1" (default RPG Maker MZ track).
+Edit data/Map001.json and change "village_theme" back to "Town1" in the bgm.name field.
+
+---
+Project: พจนภัยในดินแดนอันตราย (Peril in the Dangerous Lands)

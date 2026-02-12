@@ -1,0 +1,51 @@
+# forest_theme.ogg - Great Forest Mountains Background Music
+
+This placeholder indicates that the forest_theme.ogg audio file needs to be downloaded.
+
+## Requirements
+- Format: OGG Vorbis (.ogg)
+- Bitrate: 128-192 kbps
+- Style: Mysterious, tense, slightly dangerous
+- Duration: 2-4 minutes (loopable)
+
+## Recommended Sources
+
+### Free Options (Attribution Required)
+1. **Soundimage.org Fantasy/Wonder**
+   URL: https://soundimage.org/fantasywonder/
+   Look for: Dark forest themes, mysterious/tense tracks
+   License: Free with attribution to Eric Matyas
+
+2. **OpenGameArt.org**
+   URL: https://opengameart.org/art-search?keys=forest+music+rpg+dark
+   License: Various CC licenses
+
+3. **itch.io Free RPG Music**
+   URL: https://itch.io/game-assets/free/genre-rpg/tag-music
+   License: Varies by creator
+
+### Paid Options
+1. **Shanghai Fantasy Story DLC** (Steam)
+   URL: https://store.steampowered.com/app/1378440
+   Price: $9.99 (often 60% off)
+   Includes Asian-themed RPG BGM
+
+2. **FSM - World Music Collection** (Steam)
+   URL: https://store.steampowered.com/app/1119630
+   Contains atmospheric tracks
+
+## Installation
+1. Download or create a mysterious forest-themed music track
+2. Convert to OGG format if needed (use Audacity or FFmpeg)
+3. Save as: audio/bgm/forest_theme.ogg
+4. Delete this placeholder file
+
+## Conversion Command (FFmpeg)
+ffmpeg -i input_music.mp3 -c:a libvorbis -q:a 5 forest_theme.ogg
+
+## Alternative: Use RPG Maker MZ Default
+If you don't have custom audio, the map will fallback to "Field2" (default RPG Maker MZ track).
+Edit data/Map002.json and change "forest_theme" back to "Field2" in the bgm.name field.
+
+---
+Project: พจนภัยในดินแดนอันตราย (Peril in the Dangerous Lands)

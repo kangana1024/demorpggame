@@ -3,7 +3,7 @@
   "autoplayBgs": true,
   "battleback1Name": "Forest1",
   "battleback2Name": "Forest1",
-  "bgm": {"name": "Field2", "pan": 0, "pitch": 100, "volume": 75},
+  "bgm": {"name": "forest_theme", "pan": 0, "pitch": 100, "volume": 75},
   "bgs": {"name": "River", "pan": 0, "pitch": 100, "volume": 40},
   "disableDashing": false,
   "displayName": "ป่าเขาใหญ่",
