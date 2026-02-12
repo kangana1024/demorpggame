@@ -1,12 +1,18 @@
 # Audio Setup Guide for พจนภัยในดินแดนอันตราย
 
-This guide explains how to set up background music (BGM) for the "Peril in the Dangerous Lands" demo game.
+This guide explains how to set up audio (BGM and SE) for the "Peril in the Dangerous Lands" demo game.
 
 ## Current Status
 
+### Background Music (BGM)
 The maps are configured to use custom theme music:
 - **Map001 (Border Village)**: `village_theme.ogg` - Warm, peaceful Thai-inspired music
 - **Map002 (Great Forest Mountains)**: `forest_theme.ogg` - Mysterious, tense forest music
+
+### Sound Effects (SE)
+The terrain hazard system uses custom sound effects:
+- **Poison Swamp Entry**: `poison_bubble.ogg` - Bubbling/gurgling poison sound
+- **Quicksand Entry**: `quicksand_squelch.ogg` - Wet squelching/sinking sound
 
 ⚠️ **Audio files must be downloaded manually** - they are not included in the repository.
 
@@ -176,6 +182,49 @@ Music:
 - "Village Theme" by [Artist Name] - [Source URL]
 - "Forest Theme" by [Artist Name] - [Source URL]
 Licensed under [License Type]
+```
+
+---
+
+---
+
+## Sound Effects Setup
+
+### Required SE Files
+
+| Filename | Location | Description | Used When |
+|----------|----------|-------------|-----------|
+| `poison_bubble.ogg` | `audio/se/` | Bubbling poison sound | Entering Poison Swamp (Region 2) |
+| `quicksand_squelch.ogg` | `audio/se/` | Wet sinking sound | Entering Quicksand (Region 3) |
+
+### SE File Requirements
+
+**Technical Specifications:**
+- **Format**: OGG Vorbis (.ogg)
+- **Bitrate**: 96-128 kbps
+- **Duration**: 0.5-1.5 seconds
+- **Sample Rate**: 44100 Hz
+
+### SE Installation
+
+1. Download or create sound effects from recommended sources
+2. Convert to OGG format if needed
+3. Place files in `audio/se/` directory
+4. Delete the `.DOWNLOAD_REQUIRED.txt` placeholder files
+
+### SE Sources
+
+- **Freesound.org**: https://freesound.org (requires free account)
+  - Search: "bubble swamp", "squelch mud", "poison bubble"
+- **OpenGameArt.org**: https://opengameart.org/art-search?keys=sound+effect
+- **jsfxr/Bfxr**: https://sfxr.me/ or https://www.bfxr.net/ (generate retro-style sounds)
+
+### SE Conversion
+
+```bash
+# Convert to OGG for SE (lower bitrate is fine for short sounds)
+ffmpeg -i source.wav -c:a libvorbis -q:a 4 audio/se/poison_bubble.ogg
+ffmpeg -i source.wav -c:a libvorbis -q:a 4 audio/se/quicksand_squelch.ogg
 ```
 
 ---

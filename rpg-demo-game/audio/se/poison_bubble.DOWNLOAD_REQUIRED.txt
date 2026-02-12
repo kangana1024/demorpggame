@@ -1,0 +1,74 @@
+# Sound Effect: poison_bubble.ogg
+
+## About This File
+This placeholder indicates that the sound effect file `poison_bubble.ogg` must be downloaded manually.
+
+## Usage
+This sound effect plays when entering the Poison Swamp (Region 2) hazard zone.
+
+## File Requirements
+| Property | Value |
+|----------|-------|
+| **Filename** | `poison_bubble.ogg` |
+| **Format** | OGG Vorbis (.ogg) |
+| **Bitrate** | 96-128 kbps |
+| **Duration** | 0.5-1.5 seconds |
+| **Style** | Bubbling, gurgling poison swamp sound |
+
+## Installation
+1. Download or create a poison bubble sound effect
+2. Convert to OGG format if needed (see conversion commands below)
+3. Save as `audio/se/poison_bubble.ogg`
+4. Delete this placeholder file
+
+## Recommended Sound Sources
+
+### Free Sources
+- **Freesound.org**: https://freesound.org/search/?q=bubble+swamp
+  - Search: "bubble swamp", "poison bubble", "marsh gurgle"
+  - License: Various CC licenses (check each sound)
+
+- **OpenGameArt.org**: https://opengameart.org/art-search?keys=bubble+sound
+  - Search: "bubble", "poison", "swamp sounds"
+
+- **Sonniss GDC Audio Bundle**: https://sonniss.com/gameaudiogdc
+  - Free annual sound library releases
+  - High-quality game-ready audio
+
+### Creating Your Own
+You can generate similar sounds using:
+- Audacity with built-in effects (Noise + Filter + Reverb)
+- jsfxr/sfxr: https://sfxr.me/ (retro style)
+- Bfxr: https://www.bfxr.net/ (enhanced sfxr)
+
+## Audio Conversion
+
+If your source audio is not in OGG format:
+
+```bash
+# Install FFmpeg
+# macOS: brew install ffmpeg
+# Ubuntu: sudo apt install ffmpeg
+
+# Convert MP3 to OGG (SE quality)
+ffmpeg -i source.mp3 -c:a libvorbis -q:a 4 audio/se/poison_bubble.ogg
+
+# Convert WAV to OGG
+ffmpeg -i source.wav -c:a libvorbis -q:a 4 audio/se/poison_bubble.ogg
+```
+
+Quality setting `-q:a`:
+- `3` = ~96 kbps (good for short SE)
+- `4` = ~112 kbps (recommended)
+- `5` = ~128 kbps (higher quality)
+
+## Sound Effect Parameters (in-game)
+| Parameter | Value | Description |
+|-----------|-------|-------------|
+| Volume | 65 | Audible but not overwhelming |
+| Pitch | 90 | Slightly lower for ominous feel |
+| Pan | 0 | Center balanced |
+
+---
+
+*Project: Peril in the Dangerous Lands*

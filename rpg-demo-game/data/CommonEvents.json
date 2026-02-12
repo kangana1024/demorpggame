@@ -30,6 +30,8 @@
       {"code": 355, "indent": 1, "parameters": ["if (!$gameTemp._inPoisonSwamp) {"]},
       {"code": 355, "indent": 1, "parameters": ["  $gameTemp._inPoisonSwamp = true;"]},
       {"code": 223, "indent": 1, "parameters": [[200, 255, 200, 50], 20, false]},
+      {"code": 355, "indent": 1, "parameters": ["  // Play poison bubble sound effect on entry"]},
+      {"code": 355, "indent": 1, "parameters": ["  AudioManager.playSe({name: 'poison_bubble', volume: 65, pitch: 90, pan: 0});"]},
       {"code": 355, "indent": 1, "parameters": ["}"]},
 
       {"code": 355, "indent": 1, "parameters": ["// Apply terrain HP damage (3% of max HP)"]},
@@ -88,6 +90,8 @@
       {"code": 223, "indent": 1, "parameters": [[222, 184, 135, 60], 20, false]},
       {"code": 355, "indent": 1, "parameters": ["  // Visual feedback: Screen shake when first entering quicksand"]},
       {"code": 225, "indent": 1, "parameters": [2, 3, 20]},
+      {"code": 355, "indent": 1, "parameters": ["  // Play quicksand squelch sound effect on entry"]},
+      {"code": 355, "indent": 1, "parameters": ["  AudioManager.playSe({name: 'quicksand_squelch', volume: 70, pitch: 85, pan: 0});"]},
       {"code": 355, "indent": 1, "parameters": ["}"]},
 
       {"code": 355, "indent": 1, "parameters": ["// Play sinking/sand sound effect (subtle)"]},
