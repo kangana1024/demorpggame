@@ -3,6 +3,12 @@
   {
     "id": 1,
     "list": [
+      {"code": 355, "indent": 0, "parameters": ["// Master Terrain Check - runs in parallel"]},
+      {"code": 355, "indent": 0, "parameters": ["// This event coordinates terrain hazard detection"]},
+      {"code": 117, "indent": 0, "parameters": [2]},
+      {"code": 117, "indent": 0, "parameters": [3]},
+      {"code": 117, "indent": 0, "parameters": [4]},
+      {"code": 230, "indent": 0, "parameters": [30]},
       {"code": 0, "indent": 0, "parameters": []}
     ],
     "name": "Terrain Check System",
@@ -12,6 +18,31 @@
   {
     "id": 2,
     "list": [
+      {"code": 355, "indent": 0, "parameters": ["// Region 2: Poison Swamp Effect"]},
+      {"code": 111, "indent": 0, "parameters": [12, "$gamePlayer.regionId() === 2"]},
+
+      {"code": 223, "indent": 1, "parameters": [[200, 255, 200, 40], 30, false]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Apply terrain HP damage (3% of max HP)"]},
+      {"code": 355, "indent": 1, "parameters": ["var leader = $gameParty.leader();"]},
+      {"code": 355, "indent": 1, "parameters": ["var damage = Math.max(1, Math.floor(leader.mhp * 0.03));"]},
+      {"code": 355, "indent": 1, "parameters": ["leader.gainHp(-damage);"]},
+
+      {"code": 250, "indent": 1, "parameters": [{"name": "Damage4", "volume": 50, "pitch": 100, "pan": 0}]},
+
+      {"code": 224, "indent": 1, "parameters": [[200, 100, 200, 128], 5, true]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Apply Poison state (ID: 2) if not already poisoned"]},
+      {"code": 355, "indent": 1, "parameters": ["var leader = $gameParty.leader();"]},
+      {"code": 355, "indent": 1, "parameters": ["if (!leader.isStateAffected(2)) { leader.addState(2); }"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Show terrain damage in battle log style"]},
+      {"code": 355, "indent": 1, "parameters": ["if (typeof $gameTemp._terrainDamageMsg === 'undefined' || !$gameTemp._terrainDamageMsg) {"]},
+      {"code": 355, "indent": 1, "parameters": ["  $gameTemp._terrainDamageMsg = true;"]},
+      {"code": 355, "indent": 1, "parameters": ["}"]},
+
+      {"code": 0, "indent": 1, "parameters": []},
+      {"code": 412, "indent": 0, "parameters": []},
       {"code": 0, "indent": 0, "parameters": []}
     ],
     "name": "Poison Swamp Effect",
@@ -21,6 +52,14 @@
   {
     "id": 3,
     "list": [
+      {"code": 355, "indent": 0, "parameters": ["// Region 3: Quicksand Effect"]},
+      {"code": 111, "indent": 0, "parameters": [12, "$gamePlayer.regionId() === 3"]},
+      {"code": 355, "indent": 1, "parameters": ["// Reduce movement speed to 50%"]},
+      {"code": 355, "indent": 1, "parameters": ["if ($gamePlayer.moveSpeed() > 2) { $gamePlayer.setMoveSpeed(2); }"]},
+      {"code": 355, "indent": 1, "parameters": ["// Apply yellow-brown screen tint for sand effect"]},
+      {"code": 223, "indent": 1, "parameters": [[222, 184, 135, 40], 30, false]},
+      {"code": 0, "indent": 1, "parameters": []},
+      {"code": 412, "indent": 0, "parameters": []},
       {"code": 0, "indent": 0, "parameters": []}
     ],
     "name": "Quicksand Effect",
@@ -30,6 +69,16 @@
   {
     "id": 4,
     "list": [
+      {"code": 355, "indent": 0, "parameters": ["// Region 7: Safe Zone - clear hazard effects"]},
+      {"code": 111, "indent": 0, "parameters": [12, "$gamePlayer.regionId() === 7 || $gamePlayer.regionId() === 0"]},
+      {"code": 355, "indent": 1, "parameters": ["// Clear terrain damage flag"]},
+      {"code": 355, "indent": 1, "parameters": ["$gameTemp._terrainDamageMsg = false;"]},
+      {"code": 355, "indent": 1, "parameters": ["// Restore normal movement speed"]},
+      {"code": 355, "indent": 1, "parameters": ["if ($gamePlayer.moveSpeed() < 4) { $gamePlayer.setMoveSpeed(4); }"]},
+      {"code": 355, "indent": 1, "parameters": ["// Restore normal screen tint"]},
+      {"code": 223, "indent": 1, "parameters": [[0, 0, 0, 0], 60, false]},
+      {"code": 0, "indent": 1, "parameters": []},
+      {"code": 412, "indent": 0, "parameters": []},
       {"code": 0, "indent": 0, "parameters": []}
     ],
     "name": "Safe Zone Clear",
