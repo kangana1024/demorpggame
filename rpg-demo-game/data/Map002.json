@@ -369,6 +369,33 @@
       ],
       "x": 15,
       "y": 14
+    },
+    {
+      "id": 5,
+      "name": "ปีศาจหมู",
+      "note": "Pig Demon Enemy - Chases player and triggers battle on contact",
+      "pages": [
+        {
+          "conditions": {"actorId": 1, "actorValid": false, "itemId": 1, "itemValid": false, "selfSwitchCh": "A", "selfSwitchValid": false, "switch1Id": 1, "switch1Valid": false, "switch2Id": 1, "switch2Valid": false, "variableId": 1, "variableValid": false, "variableValue": 0},
+          "directionFix": false,
+          "image": {"tileId": 0, "characterName": "Monster", "direction": 2, "pattern": 0, "characterIndex": 4},
+          "list": [
+            {"code": 301, "indent": 0, "parameters": [0, 1, false, true]},
+            {"code": 0, "indent": 0, "parameters": []}
+          ],
+          "moveFrequency": 4,
+          "moveRoute": {"list": [{"code": 0, "parameters": []}], "repeat": true, "skippable": true, "wait": false},
+          "moveSpeed": 3,
+          "moveType": 2,
+          "priorityType": 1,
+          "stepAnime": true,
+          "through": false,
+          "trigger": 2,
+          "walkAnime": true
+        }
+      ],
+      "x": 20,
+      "y": 15
     }
   ]
 }
