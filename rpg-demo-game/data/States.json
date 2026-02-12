@@ -34,11 +34,11 @@
     "message1": "โดนพิษ!",
     "message2": "หายจากพิษแล้ว",
     "message3": "ยังคงเป็นพิษ",
-    "message4": "",
+    "message4": "พิษกำลังทำร้าย",
     "minTurns": 3,
     "motion": 0,
     "name": "พิษ",
-    "note": "<Slip Damage: +3% HP>",
+    "note": "<Slip Damage: +3% HP>\nHP will drain 3% per turn while poisoned.",
     "overlay": 4,
     "priority": 50,
     "releaseByDamage": false,
@@ -48,7 +48,13 @@
     "removeByWalking": true,
     "restriction": 0,
     "stepsToRemove": 100,
-    "traits": []
+    "traits": [
+      {
+        "code": 22,
+        "dataId": 0,
+        "value": -0.03
+      }
+    ]
   },
   {
     "id": 3,
