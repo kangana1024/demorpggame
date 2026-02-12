@@ -53,11 +53,41 @@
     "id": 3,
     "list": [
       {"code": 355, "indent": 0, "parameters": ["// Region 3: Quicksand Effect"]},
+      {"code": 355, "indent": 0, "parameters": ["// Applies 50% movement speed reduction when in quicksand"]},
       {"code": 111, "indent": 0, "parameters": [12, "$gamePlayer.regionId() === 3"]},
-      {"code": 355, "indent": 1, "parameters": ["// Reduce movement speed to 50%"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Reduce movement speed to 50% (speed 2 = half of normal speed 4)"]},
       {"code": 355, "indent": 1, "parameters": ["if ($gamePlayer.moveSpeed() > 2) { $gamePlayer.setMoveSpeed(2); }"]},
-      {"code": 355, "indent": 1, "parameters": ["// Apply yellow-brown screen tint for sand effect"]},
-      {"code": 223, "indent": 1, "parameters": [[222, 184, 135, 40], 30, false]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Apply yellow-brown screen tint for sand/dust effect"]},
+      {"code": 223, "indent": 1, "parameters": [[222, 184, 135, 50], 30, false]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Play sinking/sand sound effect (subtle)"]},
+      {"code": 355, "indent": 1, "parameters": ["// Only play sound occasionally to avoid repetition"]},
+      {"code": 355, "indent": 1, "parameters": ["if (!$gameTemp._quicksandSoundTimer || $gameTemp._quicksandSoundTimer <= 0) {"]},
+      {"code": 355, "indent": 1, "parameters": ["  $gameTemp._quicksandSoundTimer = 90; // 1.5 second cooldown"]},
+      {"code": 250, "indent": 1, "parameters": [{"name": "Sand", "volume": 40, "pitch": 80, "pan": 0}]},
+      {"code": 355, "indent": 1, "parameters": ["}"]},
+      {"code": 355, "indent": 1, "parameters": ["$gameTemp._quicksandSoundTimer--;"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Dust particle effect - subtle screen shake"]},
+      {"code": 355, "indent": 1, "parameters": ["// Only trigger shake when first entering quicksand"]},
+      {"code": 355, "indent": 1, "parameters": ["if (!$gameTemp._inQuicksand) {"]},
+      {"code": 355, "indent": 1, "parameters": ["  $gameTemp._inQuicksand = true;"]},
+      {"code": 225, "indent": 1, "parameters": [1, 2, 15]},
+      {"code": 355, "indent": 1, "parameters": ["}"]},
+
+      {"code": 355, "indent": 1, "parameters": ["// Flash screen briefly for visual feedback (dust/sand particles)"]},
+      {"code": 355, "indent": 1, "parameters": ["if (Math.random() < 0.1) { // 10% chance per frame for subtle effect"]},
+      {"code": 224, "indent": 1, "parameters": [[210, 180, 140, 30], 10, true]},
+      {"code": 355, "indent": 1, "parameters": ["}"]},
+
+      {"code": 0, "indent": 1, "parameters": []},
+      {"code": 411, "indent": 0, "parameters": []},
+
+      {"code": 355, "indent": 1, "parameters": ["// Reset quicksand state when leaving"]},
+      {"code": 355, "indent": 1, "parameters": ["$gameTemp._inQuicksand = false;"]},
+
       {"code": 0, "indent": 1, "parameters": []},
       {"code": 412, "indent": 0, "parameters": []},
       {"code": 0, "indent": 0, "parameters": []}
@@ -73,7 +103,10 @@
       {"code": 111, "indent": 0, "parameters": [12, "$gamePlayer.regionId() === 7 || $gamePlayer.regionId() === 0"]},
       {"code": 355, "indent": 1, "parameters": ["// Clear terrain damage flag"]},
       {"code": 355, "indent": 1, "parameters": ["$gameTemp._terrainDamageMsg = false;"]},
-      {"code": 355, "indent": 1, "parameters": ["// Restore normal movement speed"]},
+      {"code": 355, "indent": 1, "parameters": ["// Clear quicksand state flags"]},
+      {"code": 355, "indent": 1, "parameters": ["$gameTemp._inQuicksand = false;"]},
+      {"code": 355, "indent": 1, "parameters": ["$gameTemp._quicksandSoundTimer = 0;"]},
+      {"code": 355, "indent": 1, "parameters": ["// Restore normal movement speed (speed 4 = default)"]},
       {"code": 355, "indent": 1, "parameters": ["if ($gamePlayer.moveSpeed() < 4) { $gamePlayer.setMoveSpeed(4); }"]},
       {"code": 355, "indent": 1, "parameters": ["// Restore normal screen tint"]},
       {"code": 223, "indent": 1, "parameters": [[0, 0, 0, 0], 60, false]},
